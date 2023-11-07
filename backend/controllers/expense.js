@@ -1,11 +1,11 @@
-const IncomeSchema = require("../models/incomeModel");
+const ExpenseSchema = require("../models/expenseModel");
 
-//ADD income function
-exports.addIncome = async (req, res) => {
+//ADD Expense function
+exports.addExpense = async (req, res) => {
   const { title, amount, type, category, date, description, userOwner } =
     req.body;
 
-  const income = IncomeSchema({
+  const expense = ExpenseSchema({
     title,
     amount,
     type,
@@ -26,66 +26,57 @@ exports.addIncome = async (req, res) => {
       res.status(500).json({ message: "the title must be filled" });
     } else {
       // const result =
-      await income.save();
+      await expense.save();
 
-      res.status(200).json({ message: "income was successfully Added" });
+      res.status(200).json({ message: "expense was successfully Added" });
     }
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
 };
 
-//get ALL incomes by the user function
-exports.getIncome = async (req, res) => {
+//get ALL Expense function
+exports.getExpense = async (req, res) => {
   const { id } = req.params;
 
   try {
-    const result = await IncomeSchema.find({ userOwner: id });
+    const result = await ExpenseSchema.find({ userOwner: id });
     res.status(200).json(result);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
 };
 
-exports.getAllIncomes = async (req, res) => {
-  try {
-    const result = await IncomeSchema.find().sort({ createdAt: -1 });
-    res.status(200).json(result);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-};
-
-//delete income function
-exports.deleteIncome = async (req, res) => {
+//delete Expense function
+exports.deleteExpense = async (req, res) => {
   const { id } = req.params;
 
   try {
-    const result = await IncomeSchema.deleteOne({ _id: id });
+    const result = await ExpenseSchema.deleteOne({ _id: id });
 
     if (!result) {
-      throw Error("Income does not exist");
+      throw Error("Expense does not exist");
     }
 
-    res.status(200).json({ message: "Income is deleted" });
+    res.status(200).json({ message: "Expense is deleted" });
   } catch (err) {
     res.status(500).json({ messaage: err.message });
   }
 };
 
-// update INCOME
-exports.updateIncome = async (req, res) => {
+// update expense
+exports.updateExpense = async (req, res) => {
   const { id } = req.params;
   const body = req.body;
 
   try {
-    const result = await IncomeSchema.findByIdAndUpdate({ _id: id }, body);
+    const result = await ExpenseSchema.findByIdAndUpdate({ _id: id }, body);
 
     if (!result) {
-      throw Error("Income does not exist");
+      throw Error("Expense does not exist");
     }
 
-    res.status(200).json({ message: "Income is is updated" });
+    res.status(200).json({ message: "Expense is is updated" });
   } catch (err) {
     res.status(500).json({ messaage: err.message });
   }
