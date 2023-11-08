@@ -1,0 +1,31 @@
+:root {
+  --white: #ffffff;
+  --lightBlue: #dfe1f3;
+  --2lightBlue: #cbd1f1;
+
+  --dark-font: #000057;
+  --light-font: #797979;
+  --blue-font: #465bf7;
+  --black: #000000;
+}
+
+.head {
+  font-weight: 600;
+  font-size: 2.8rem;
+  text-transform: capitalize;
+  color: rgb(70, 0, 58);
+  margin-bottom: 2rem;
+}
+#margin {
+  margin: 2rem 3rem;
+}
+#padding {
+  padding: 2rem 3rem;
+}
+
+#sm-margin {
+  margin: 1rem 2rem;
+}
+#sm-padding {
+  padding: 1rem 2rem;
+}
