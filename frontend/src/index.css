@@ -17,11 +17,3 @@ body {
   font-size: 1.8rem;
   font-family: "Nunito Sans", sans-serif;
 }
-
-.app {
-  background-color: rgb(227, 197, 255);
-  min-height: 100vh;
-  /* margin-top: 8rem; */
-  overflow-x: hidden;
-  color: black;
-}

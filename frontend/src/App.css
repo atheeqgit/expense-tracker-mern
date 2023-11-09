@@ -2,6 +2,7 @@
   --white: #ffffff;
   --lightBlue: #dfe1f3;
   --2lightBlue: #cbd1f1;
+  --bg-color: #f6f7fb;
 
   --dark-font: #000057;
   --light-font: #797979;
@@ -16,6 +17,10 @@
   color: rgb(70, 0, 58);
   margin-bottom: 2rem;
 }
+#container {
+  padding: 1rem 1rem;
+}
+
 #margin {
   margin: 2rem 3rem;
 }
@@ -28,4 +33,24 @@
 }
 #sm-padding {
   padding: 1rem 2rem;
+}
+
+.app {
+  background-color: var(--bg-color);
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: black;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  gap: 1rem;
+  flex-direction: row;
+}
+
+.aside-layout {
+  width: 20%;
+}
+.main-layout {
+  width: 80%;
+  border-radius: 1rem;
 }
