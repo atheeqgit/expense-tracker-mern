@@ -13,7 +13,7 @@ const Navbar = () => {
             isPending ? "pending" : isActive ? "link-active" : ""
           }
         >
-          <i class="fa-solid fa-house"></i>
+          <i className="fa-solid fa-house"></i>
           <p>home</p>
         </NavLink>
         <NavLink
@@ -22,7 +22,7 @@ const Navbar = () => {
             isPending ? "pending" : isActive ? "link-active" : ""
           }
         >
-          <i class="fa-solid fa-chart-line"></i>
+          <i className="fa-solid fa-chart-line"></i>
           <p>dashboard</p>
         </NavLink>
         <NavLink
@@ -31,7 +31,7 @@ const Navbar = () => {
             isPending ? "pending" : isActive ? "link-active" : ""
           }
         >
-          <i class="fa-solid fa-clock-rotate-left"></i>
+          <i className="fa-solid fa-clock-rotate-left"></i>
           <p>recent</p>
         </NavLink>
         <NavLink
@@ -40,7 +40,7 @@ const Navbar = () => {
             isPending ? "pending" : isActive ? "link-active" : ""
           }
         >
-          <i class="fa-solid fa-gear"></i>
+          <i className="fa-solid fa-gear"></i>
           <p>settings</p>
         </NavLink>
       </div>

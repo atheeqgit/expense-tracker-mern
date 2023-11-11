@@ -1,0 +1,37 @@
+.card {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  background-color: white;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--light-font);
+  transform: scale(1);
+  border: thin solid rgb(216, 216, 216);
+}
+.card:hover {
+  transform: scale(1.01);
+  color: var(--black);
+}
+.card h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.card h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+.card p {
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.card .card-btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
