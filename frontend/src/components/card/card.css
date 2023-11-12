@@ -10,10 +10,10 @@
   color: var(--light-font);
   transform: scale(1);
   border: thin solid rgb(216, 216, 216);
+  transition: 100ms;
 }
 .card:hover {
-  transform: scale(1.01);
-  color: var(--black);
+  color: var(--dark-font);
 }
 .card h3 {
   font-size: 1.8rem;
@@ -34,4 +34,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 2rem;
+}
+.card .card-btns i {
+  cursor: pointer;
 }

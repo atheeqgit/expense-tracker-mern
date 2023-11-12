@@ -1,33 +1,53 @@
-.form {
+.form-container {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.form-container .form {
+  display: flex;
+  height: 80%;
   flex-direction: column;
   padding: 1rem;
   border-radius: 1rem;
+  justify-content: space-around;
   background-color: var(--white);
-
+  width: fit-content;
   gap: 1.5rem;
   box-shadow: 6px 6px rgb(0, 255, 21), -1px 0 0.3em #6d6d6d38;
 }
-.form .form-control {
+.form-container .form .form-control {
   display: flex;
-  flex-direction: column;
+
   gap: 0.5rem;
 }
-.form .form-control input {
+
+.form-container .form .form-control input {
   background-color: var(--white);
   border: none;
   outline: none;
   font-size: 1.6rem;
   font-family: inherit;
+  width: 100%;
   padding: 0.5rem 1rem;
   font-weight: 500;
 
   border-bottom: 1px solid rgba(128, 128, 128, 0.329);
 }
-.form .form-control .amount {
-  font-size: 2.6rem;
+
+.form-container .form .form-control .amount {
+  font-size: 3.6rem;
 }
-.form select {
+
+.form-container .form h1 {
+  font-size: 3rem;
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+.form-container .form select {
   background-color: var(--white);
   border: none;
   outline: none;
@@ -35,13 +55,14 @@
   font-family: inherit;
   padding: 0.5rem 1rem;
   font-weight: 500;
+  width: fit-content;
   border-radius: 0.5rem;
 }
 
-form button {
+.form-container form button {
   padding: 1rem 2rem;
   display: block;
-  margin: auto;
+  margin: 0 auto;
   border-radius: 0.5rem;
   cursor: pointer;
   outline: none;
@@ -54,7 +75,8 @@ form button {
   text-transform: capitalize;
   background-color: var(--2lightBlue);
 }
-form button:hover {
+
+.form-container form button:hover {
   opacity: 0.7;
 }
 /* option {

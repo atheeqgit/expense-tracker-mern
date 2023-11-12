@@ -36,6 +36,7 @@ const Dashboard = () => {
           className="card"
           style={{
             color: `var(--dark-font)`,
+            backgroundColor: `var(--lightBlue)`,
           }}
         >
           <p className="card-title">Title</p>

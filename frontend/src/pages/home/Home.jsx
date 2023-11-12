@@ -13,6 +13,7 @@ const Home = () => {
   useEffect(() => {
     getAllIncomes();
     getIncomes();
+    getExpense();
   }, []);
 
   return (
@@ -45,6 +46,7 @@ const Home = () => {
           className="card"
           style={{
             color: `var(--dark-font)`,
+            backgroundColor: `var(--lightBlue)`,
           }}
         >
           <p className="card-title">Title</p>

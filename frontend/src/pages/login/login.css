@@ -1,0 +1,99 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.login-container .form {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  padding: 2rem 3rem;
+
+  border-radius: 1rem;
+  justify-content: space-around;
+  background-color: var(--white);
+  gap: 3rem;
+  border: 3px solid var(--2lightBlue);
+  box-shadow: 3px 2px 1rem #6d6d6d54;
+}
+
+.login-container .form .form-control {
+  display: flex;
+  flex-direction: column;
+}
+.login-container .form .form-control label {
+  text-transform: capitalize;
+  color: var(--dark-font);
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.login-container .form .form-control input {
+  background-color: var(--white);
+  border: none;
+  outline: none;
+  font-size: 1.6rem;
+  font-family: inherit;
+  width: 100%;
+  padding: 0.5rem 0;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.329);
+}
+
+.login-container .form h1 {
+  font-size: 3.2rem;
+  color: var(--dark-font);
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: 700;
+}
+.login-container .form p {
+  font-size: 1.4rem;
+  color: var(--light-font);
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: 600;
+  cursor: pointer;
+}
+.login-container .form-control p {
+  font-size: 1.6rem;
+  color: var(--light-font);
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+.login-container .form p span {
+  font-size: 1.6rem;
+  color: var(--light-font);
+  text-decoration: underline;
+}
+.login-container .form p:hover {
+  color: var(--dark-font);
+}
+.login-container .form p:hover span {
+  color: var(--dark-font);
+}
+
+.login-container form button {
+  padding: 1rem 2rem;
+  display: block;
+  margin: 0 auto;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  outline: none;
+  border: 1px solid var(--light-font);
+  font-size: 1.6rem;
+  color: var(--dark-font);
+  width: fit-content;
+  font-weight: 700;
+  font-family: inherit;
+  text-transform: capitalize;
+  background-color: var(--2lightBlue);
+}
+form button:hover {
+  opacity: 0.7;
+}
