@@ -33,6 +33,7 @@
 
 .login-container .form .form-control input {
   background-color: var(--white);
+  color: var(--light-font);
   border: none;
   outline: none;
   font-size: 1.6rem;

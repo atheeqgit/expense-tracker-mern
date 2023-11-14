@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { useGlobalContext } from "../../context";
 import Card from "../../components/card/Card";
 import { Link, useNavigate } from "react-router-dom";
+import LineChart from "../../components/lineChart/LineChart";
+import FloatingBtn from "../../components/floatingBtn/FloatingBtn";
 
 const Dashboard = () => {
   const { getIncomes, getExpense, incomes, expense } = useGlobalContext();
@@ -17,21 +19,29 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="home">
-      <div className="info-div">infos div</div>
-      <div className="btns-div">
-        <button
-          style={{
-            backgroundColor: ` rgb(37 255 55)`,
-          }}
-          onClick={() => {
-            setIsIncome(!isIncome);
-          }}
-        >
-          SHOW {isIncome ? "EXPENSES" : "INCOMES"}
-        </button>
+    <div className="dashboard">
+      <FloatingBtn />
+      <h1 className="title-text2">
+        <i className="fa-solid fa-chart-line"></i> dashboard
+      </h1>
+      <div className="charts">
+        <LineChart />
       </div>
+
       <div className="transactions-div">
+        <div className="btns-div">
+          <h1 className="title-text">
+            {isIncome ? "all incomes " : "all expenses"}
+          </h1>
+          <button
+            onClick={() => {
+              setIsIncome(!isIncome);
+            }}
+          >
+            view {isIncome ? "expenses" : "incomes"}{" "}
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+        </div>
         <div
           className="card"
           style={{
@@ -42,16 +52,28 @@ const Dashboard = () => {
           <p className="card-title">Title</p>
           <p>Amount</p>
           <p>description</p>
-          <p>date & time</p>
+          <p className="card-btns">date & time</p>
           <p className="card-btns">tools</p>
         </div>
-        {isIncome
-          ? incomes?.map((income) => {
+        {isIncome ? (
+          incomes.length != 0 ? (
+            incomes.map((income) => {
               return <Card data={income} />;
             })
-          : expense?.map((expense) => {
-              return <Card data={expense} />;
-            })}
+          ) : (
+            <p className="no-transactions">
+              there are no previous transactions .... please add
+            </p>
+          )
+        ) : expense.length != 0 ? (
+          expense.map((expense) => {
+            return <Card data={expense} />;
+          })
+        ) : (
+          <p className="no-transactions">
+            there are no previous transactions .... please add
+          </p>
+        )}
       </div>
     </div>
   );

@@ -45,10 +45,10 @@ const LoginForm = ({ setIsLogin }) => {
       setCookies("access_token", result.data.token);
       window.localStorage.setItem("userID", result.data.user._id);
       navigate("/");
-      toast.success("You have Successfully Loged in!");
+      toast.success("You have Successfully Logged in!");
       setUserID(result.data.user._id);
     } catch (error) {
-      toast.error("error Occureded loging in!");
+      toast.error(error.response.data.message);
       console.error(error);
     }
   };
@@ -153,7 +153,7 @@ const RegisterForm = ({ setIsLogin }) => {
       setCookies("access_token", result.data.token);
       window.localStorage.setItem("userID", result.data.user._id);
       navigate("/");
-      toast.success("You have Successfully Loged in!");
+      toast.success("You have Successfully Logged in!");
       setUserID(result.data.user._id);
     } catch (error) {
       toast.error("error Occureded loging in!");

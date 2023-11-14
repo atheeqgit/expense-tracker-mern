@@ -1,0 +1,35 @@
+.recent {
+  position: relative;
+}
+.recent .btns-div {
+  display: flex;
+  width: 100%;
+  padding: 2rem 0;
+  gap: 2rem;
+}
+.recent .btns-div button {
+  padding: 1rem 2rem;
+  display: block;
+  margin: auto;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  outline: none;
+  border: 1px solid var(--light-font);
+  font-size: 1.6rem;
+  color: var(--black);
+  width: 100%;
+  font-weight: 700;
+  font-family: inherit;
+  text-transform: capitalize;
+  background-color: var(--2lightBlue);
+}
+.recent .btns-div button:hover {
+  opacity: 0.7;
+}
+.recent .transactions-div {
+  display: flex;
+  border-radius: 2rem;
+  padding: 2rem;
+  flex-direction: column;
+  gap: 1.5rem;
+}

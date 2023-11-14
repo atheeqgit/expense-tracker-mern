@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
@@ -13,13 +13,18 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Form from "./pages/form/Form";
 import Login from "./pages/login/Login";
 import { useGlobalContext } from "./context";
+import { useNavigate } from "react-router-dom";
 
 function App() {
   const [count, setCount] = useState(0);
   const { userID } = useGlobalContext();
 
+  useContext(() => {
+    navigate("/login");
+  }, []);
+
   return (
-    <div className="app" id="container">
+    <div className="app dark-mode" id="container">
       <ToastContainer autoClose={4000} hideProgressBar={true} />
       <Router>
         <div className="aside-layout">
@@ -27,10 +32,9 @@ function App() {
         </div>
         <div className="main-layout" id="container">
           <Routes>
+            <Route path="/" element={userID ? <Home /> : <Login />}></Route>
             {userID ? (
               <>
-                <Route path="/" element={<Home />}></Route>
-
                 <Route path="/dashboard" element={<Dashboard />}></Route>
                 <Route path="/recent" element={<RecentTransactions />}></Route>
                 <Route path="/settings" element={<Settings />}></Route>

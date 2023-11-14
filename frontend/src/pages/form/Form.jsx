@@ -148,8 +148,12 @@ const Form = () => {
             <option value="other">Other</option>
           </select>
         </div>
-        <button type="submit">Submit</button>
-        <p onClick={() => navigate(-1)}>go Back</p>
+        <button type="submit" className="submit-btn">
+          Submit
+        </button>
+        <p onClick={() => navigate(-1)}>
+          <i class="fa-solid fa-chevron-left"></i> go Back
+        </p>
       </form>
     </div>
   );

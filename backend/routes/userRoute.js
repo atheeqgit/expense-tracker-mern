@@ -59,7 +59,7 @@ router.post("/users/login", async (req, res) => {
     const emailExists = await userModel.findOne({ email });
 
     if (!emailExists) {
-      throw Error("email does exists ,try to Register");
+      throw Error("email does not exists, please check the email or Register ");
     }
 
     const match = await bcrypt.compare(password, emailExists.password);

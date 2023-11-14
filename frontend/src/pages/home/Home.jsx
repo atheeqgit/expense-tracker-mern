@@ -3,45 +3,38 @@ import "./home.css";
 import { useGlobalContext } from "../../context";
 import Card from "../../components/card/Card";
 import { Link, useNavigate } from "react-router-dom";
+import Infobox from "../../components/infobox/Infobox";
+import FloatingBtn from "../../components/floatingBtn/FloatingBtn";
 
 const Home = () => {
   const { getAllIncomes, allIncomes, getIncomes, getExpense } =
     useGlobalContext();
 
-  const navigate = useNavigate();
-
   useEffect(() => {
-    getAllIncomes();
     getIncomes();
     getExpense();
   }, []);
+  const navigate = useNavigate();
 
   return (
     <div className="home">
-      <div className="info-div">infos div</div>
-      <div className="btns-div">
-        <button
-          style={{
-            backgroundColor: ` rgb(37 255 55)`,
-          }}
-          onClick={() => {
-            navigate("/form");
-          }}
-        >
-          add Income
-        </button>
-        <button
-          style={{
-            backgroundColor: ` #ff6d6d`,
-          }}
-          onClick={() => {
-            navigate("/form");
-          }}
-        >
-          add expense
-        </button>
-      </div>
+      <FloatingBtn />
+      <h1 className="title-text2">
+        <i className="fa-solid fa-house"></i> home
+      </h1>
+      <Infobox />
       <div className="transactions-div">
+        <div className="trans-title-div">
+          <h1 className="title-text">3 recent Trancactions</h1>
+          <button
+            onClick={() => {
+              navigate("/recent");
+            }}
+          >
+            view all Transactions <i class="fa-solid fa-chevron-down"></i>
+          </button>
+        </div>
+
         <div
           className="card"
           style={{
@@ -52,12 +45,18 @@ const Home = () => {
           <p className="card-title">Title</p>
           <p>Amount</p>
           <p>description</p>
-          <p>date & time</p>
+          <p className="card-btns">date & time</p>
           <p className="card-btns">tools</p>
         </div>
-        {allIncomes?.map((income) => {
-          return <Card data={income} />;
-        })}
+        {allIncomes.length != [] ? (
+          allIncomes.map((income, index) => {
+            return <Card data={income} key={index} />;
+          })
+        ) : (
+          <p className="no-transactions">
+            there are no previous transactions .... please add
+          </p>
+        )}
       </div>
     </div>
   );

@@ -1,33 +1,48 @@
-.btns-div {
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+  width: 100%;
+}
+.dashboard .btns-div {
   display: flex;
   width: 100%;
-  padding: 2rem 0;
-
+  justify-content: space-between;
   gap: 2rem;
 }
-.btns-div button {
-  padding: 1rem 2rem;
-  display: block;
-  margin: auto;
-  border-radius: 0.5rem;
+
+.dashboard .btns-div button {
   cursor: pointer;
   outline: none;
-  border: 1px solid var(--light-font);
   font-size: 1.6rem;
   color: var(--black);
-  width: 100%;
-  font-weight: 700;
+  width: fit-content;
+  font-weight: 600;
+  background-color: transparent;
+  border: none;
   font-family: inherit;
   text-transform: capitalize;
-  background-color: var(--2lightBlue);
 }
-.btns-div button:hover {
+.dashboard .btns-div button:hover {
   opacity: 0.7;
 }
-.transactions-div {
+.charts {
   display: flex;
-  background-color: white;
-  border: 1px solid rgb(216, 216, 216);
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: var(--white);
+  border-radius: 3rem;
+  border: 2px solid var(--lightBlue);
+}
+.charts canvas {
+  width: 60vw;
+  height: 50%;
+}
+.dashboard .transactions-div {
+  display: flex;
+
   border-radius: 2rem;
   padding: 2rem;
   flex-direction: column;

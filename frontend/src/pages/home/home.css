@@ -1,11 +1,30 @@
-.btns-div {
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+  width: 100%;
+}
+.home .trans-title-div {
   display: flex;
   width: 100%;
-  padding: 2rem 0;
-
+  justify-content: space-between;
   gap: 2rem;
 }
-.btns-div button {
+.home .trans-title-div button {
+  cursor: pointer;
+  outline: none;
+  font-size: 1.6rem;
+  color: var(--black);
+  width: fit-content;
+  font-weight: 600;
+  background-color: transparent;
+  border: none;
+  font-family: inherit;
+  text-transform: capitalize;
+}
+
+.home .btns-div button {
   padding: 1rem 2rem;
   display: block;
   margin: auto;
@@ -21,15 +40,15 @@
   text-transform: capitalize;
   background-color: var(--2lightBlue);
 }
-.btns-div button:hover {
+.home .btns-div button:hover {
   opacity: 0.7;
 }
-.transactions-div {
+.home .transactions-div {
   display: flex;
-  background-color: white;
-  border: 1px solid rgb(216, 216, 216);
+  background-color: var(--white);
+  border: 1px solid var(--2lightBlue);
   border-radius: 2rem;
   padding: 2rem;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
 }

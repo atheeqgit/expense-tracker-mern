@@ -3,9 +3,9 @@ import "./card.css";
 import { useGlobalContext } from "../../context";
 
 const Card = ({ data }) => {
-  const { title, type, amount, description, date, _id } = data;
+  const { title, type, amount, description, date, _id, createdAt } = data;
 
-  const { deleteIncome, deleteExpense } = useGlobalContext();
+  const { deleteIncome, deleteExpense, dateFormat } = useGlobalContext();
 
   const handleDelete = (id) => {
     if (type == "income") {
@@ -33,8 +33,9 @@ const Card = ({ data }) => {
       <p>
         <i class="fa-solid fa-comment-medical"></i> {description}
       </p>
-      <p>
-        <i class="fa-solid fa-calendar-days"></i> {date}
+      <p className="card-btns">
+        <i class="fa-solid fa-calendar-days"></i>
+        {dateFormat(date)}
       </p>
       <div className="card-btns">
         <i class="fa-solid fa-pen-to-square"></i>{" "}

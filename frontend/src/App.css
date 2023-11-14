@@ -1,4 +1,4 @@
-:root {
+.app {
   --white: #ffffff;
   --lightBlue: #dfe1f3;
   --2lightBlue: #cbd1f1;
@@ -8,6 +8,16 @@
   --light-font: #797979;
   --blue-font: #465bf7;
   --black: #000000;
+}
+.dark-mode {
+  --white: #0f0f0f;
+  --lightBlue: #34353a;
+  --2lightBlue: #585858;
+  --bg-color: #202020;
+  --dark-font: #c1c1ff;
+  --light-font: #848484;
+  --blue-font: #001eff;
+  --black: #ffffff;
 }
 
 .head {
@@ -45,6 +55,7 @@
   display: flex;
   gap: 1rem;
   flex-direction: row;
+  transition: 200ms all;
 }
 
 .aside-layout {
@@ -58,4 +69,72 @@
 }
 .main-layout::-webkit-scrollbar {
   display: none;
+}
+
+.title-text {
+  font-size: 2.4rem;
+  text-transform: capitalize;
+  font-weight: 700;
+  color: var(--dark-font);
+}
+.title-text2 {
+  margin: 0.5rem 1rem;
+  font-size: 2.4rem;
+  text-transform: capitalize;
+  font-weight: 700;
+  color: var(--dark-font);
+}
+
+.floating-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  gap: 1rem;
+  text-transform: capitalize;
+  font-weight: 600;
+  color: var(--dark-font);
+  padding: 0.5rem 1rem;
+  background-color: var(--white);
+  border-radius: 0.5rem;
+  border: 2px solid var(--light-font);
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+    rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+  transition: 300ms ease-in-out;
+  position: fixed;
+  bottom: 5rem;
+  right: 3rem;
+  z-index: 100;
+}
+
+.floating-btn:hover {
+  border-radius: 10rem;
+
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+.floating-btn:active {
+  transform: scale(0.9);
+}
+
+.app button {
+  transition: 200ms ease-in-out;
+}
+.app button:active {
+  transform: scale(0.9);
+}
+
+.no-transactions {
+  font: 1.8rem;
+  font-weight: 600;
+  color: var(--dark-font);
+  text-transform: capitalize;
+  text-align: center;
+  margin: 2rem 0.5rem;
+  cursor: default;
+}
+.transactions-div {
+  background-color: var(--white);
+  border: 1px solid var(--2lightBlue);
 }

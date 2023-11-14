@@ -3,13 +3,13 @@
   grid-template-columns: repeat(5, 1fr);
   padding: 0.5rem 1rem;
   border-radius: 1rem;
-  background-color: white;
+  background-color: var(--white);
   justify-content: space-between;
   align-items: center;
   gap: 0.5rem;
   color: var(--light-font);
   transform: scale(1);
-  border: thin solid rgb(216, 216, 216);
+  border: thin solid var(--2lightBlue);
   transition: 100ms;
 }
 .card:hover {

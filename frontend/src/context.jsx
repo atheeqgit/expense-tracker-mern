@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import moment from "moment";
 
 export const Context = createContext();
 
@@ -10,18 +11,57 @@ export function GlobalProvider({ children }) {
   // };
 
   const [allIncomes, setAllIncomes] = useState([]);
+  const [recent, setRecent] = useState([]);
   const [incomes, setIncomes] = useState([]);
   const [expense, setExpense] = useState([]);
   const [userID, setUserID] = useState("");
+  const [chartData, setChartData] = useState([]);
 
   useEffect(() => {
     if (window.localStorage.getItem("userID")) {
       setUserID(window.localStorage.getItem("userID"));
       getAllIncomes();
-      getIncomes();
-      getExpense();
+      console.log(allIncomes);
+      // getIncomes();
+      // getExpense();
+
+      const chartData = () => {
+        const duplicateArray = recent?.map((item) => {
+          return dateFormat(item.date);
+        });
+
+        const dateArray = duplicateArray.filter((value, index) => {
+          return duplicateArray.indexOf(value) === index;
+        });
+
+        const finalArray = dateArray.map((date, index) => {
+          let inc = 0;
+          incomes.forEach((item) => {
+            if (dateFormat(item.date) == date) {
+              inc = inc + item.amount;
+            }
+          });
+          let exp = 0;
+          expense.forEach((item) => {
+            if (dateFormat(item.date) == date) {
+              exp = exp + item.amount;
+            }
+          });
+          return {
+            date: date,
+            income: inc,
+            expense: exp,
+          };
+        });
+
+        finalArray.reverse();
+
+        console.log(duplicateArray, dateArray, finalArray);
+        setChartData(finalArray);
+      };
+      chartData();
     }
-  }, []);
+  }, [incomes, expense]);
 
   //    Inccome
   // router
@@ -42,7 +82,8 @@ export function GlobalProvider({ children }) {
       });
       //   console.log(result);
       toast.success(result.data.message);
-      setAllIncomes([...allIncomes, body]);
+
+      // setAllIncomes([...allIncomes, { ...body, _id: userID }]);
     } catch (err) {
       toast.error(err.response.data.message);
     }
@@ -56,6 +97,8 @@ export function GlobalProvider({ children }) {
       });
 
       toast.success(result.data.message);
+
+      // setAllIncomes([...expense, { ...body, _id: userID }]);
       //   console.log(result);
     } catch (err) {
       toast.error(err.response.data.message);
@@ -65,9 +108,16 @@ export function GlobalProvider({ children }) {
   // ======== GEt ALL INCOMES =============================
 
   const getAllIncomes = async () => {
-    const sortedArray = [...incomes, ...expense];
+    if (incomes.length >= 0) {
+      const combinedArr = [...incomes, ...expense];
 
-    setAllIncomes(sortedArray);
+      combinedArr.sort((a, b) => {
+        return new Date(b.date) - new Date(a.date);
+      });
+
+      setAllIncomes(combinedArr.slice(0, 3));
+      setRecent(combinedArr);
+    }
   };
 
   // ======== GET INCOME & EXPENSE =============================
@@ -124,6 +174,41 @@ export function GlobalProvider({ children }) {
     }
   };
 
+  // ======= DATE formater =================================
+
+  const dateFormat = (date) => {
+    return moment(date).format("DD/MM/YYYY");
+  };
+  // ======= get total income & Expense =================================
+
+  const getTotalIncome = () => {
+    let totalIncome = 0;
+
+    incomes.forEach((income) => {
+      totalIncome += income.amount;
+    });
+
+    return totalIncome;
+  };
+
+  const getTotalExpense = () => {
+    let totalExpense = 0;
+
+    expense.forEach((expense) => {
+      totalExpense += expense.amount;
+    });
+
+    return totalExpense;
+  };
+
+  const getTotalBalance = () => {
+    let totalBalance = 0;
+
+    totalBalance = getTotalIncome() - getTotalExpense();
+
+    return totalBalance;
+  };
+
   return (
     <Context.Provider
       value={{
@@ -139,6 +224,13 @@ export function GlobalProvider({ children }) {
         userID,
         setUserID,
         deleteIncome,
+        dateFormat,
+        getTotalIncome,
+        getTotalExpense,
+        getTotalBalance,
+        recent,
+        setRecent,
+        chartData,
       }}
     >
       {children}
