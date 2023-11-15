@@ -1,7 +1,6 @@
 .info-div {
   display: flex;
-  gap: 3rem;
-
+  gap: 2.5rem;
   justify-content: space-around;
   background-color: var(--white);
   border: 1px solid var(--2lightBlue);
@@ -26,4 +25,13 @@
 }
 .info-card h2 {
   color: var(--dark-font);
+}
+@media screen and (max-width: 600px) {
+  .info-div {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .info-card {
+    padding: 0.5rem;
+  }
 }

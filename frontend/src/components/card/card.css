@@ -6,7 +6,7 @@
   background-color: var(--white);
   justify-content: space-between;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
   color: var(--light-font);
   transform: scale(1);
   border: thin solid var(--2lightBlue);
@@ -34,8 +34,50 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
+  text-wrap: nowrap;
 }
 .card .card-btns i {
   cursor: pointer;
+}
+@media screen and (max-width: 920px) {
+  .card .card-btns {
+    justify-content: end;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  .card h3 {
+    font-size: 1.6rem;
+  }
+  .card h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+  .card p {
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+}
+@media screen and (max-width: 800px) {
+  .card .card-btns {
+    gap: 0.5rem;
+    font-size: 1.4rem;
+  }
+  .card h3 {
+    font-size: 1.6rem;
+  }
+  .card h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+  .card p {
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
 }

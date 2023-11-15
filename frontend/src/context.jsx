@@ -15,16 +15,17 @@ export function GlobalProvider({ children }) {
   const [incomes, setIncomes] = useState([]);
   const [expense, setExpense] = useState([]);
   const [userID, setUserID] = useState("");
+  const [userDetails, setUserDetails] = useState([]);
   const [chartData, setChartData] = useState([]);
+  const [darkMode, setdarkMode] = useState(false);
 
   useEffect(() => {
     if (window.localStorage.getItem("userID")) {
       setUserID(window.localStorage.getItem("userID"));
+      setUserDetails(window.localStorage.getItem("userDetails"));
       getAllIncomes();
-      console.log(allIncomes);
-      // getIncomes();
-      // getExpense();
 
+      console.log(userDetails);
       const chartData = () => {
         const duplicateArray = recent?.map((item) => {
           return dateFormat(item.date);
@@ -34,7 +35,7 @@ export function GlobalProvider({ children }) {
           return duplicateArray.indexOf(value) === index;
         });
 
-        const finalArray = dateArray.map((date, index) => {
+        let finalArray = dateArray.map((date, index) => {
           let inc = 0;
           incomes.forEach((item) => {
             if (dateFormat(item.date) == date) {
@@ -47,6 +48,7 @@ export function GlobalProvider({ children }) {
               exp = exp + item.amount;
             }
           });
+
           return {
             date: date,
             income: inc,
@@ -54,22 +56,17 @@ export function GlobalProvider({ children }) {
           };
         });
 
-        finalArray.reverse();
+        if (finalArray.length > 10) {
+          finalArray = finalArray.slice(0, 10);
+        }
 
-        console.log(duplicateArray, dateArray, finalArray);
+        finalArray.reverse();
         setChartData(finalArray);
       };
       chartData();
     }
   }, [incomes, expense]);
 
-  //    Inccome
-  // router
-  // .post("/add-income", addIncome)
-  // .get("/get-All-incomes", getAllIncomes)
-  // .get("/get-income/:id", getIncome)
-  // .delete("/delete-income/:id", deleteIncome)
-  // .patch("/update-income/:id", updateIncome);
   const baseURL = "http://127.0.0.1:5000/api/v1";
 
   // ======== POST INCOME & EXPENSE =============================
@@ -97,9 +94,6 @@ export function GlobalProvider({ children }) {
       });
 
       toast.success(result.data.message);
-
-      // setAllIncomes([...expense, { ...body, _id: userID }]);
-      //   console.log(result);
     } catch (err) {
       toast.error(err.response.data.message);
     }
@@ -231,6 +225,10 @@ export function GlobalProvider({ children }) {
         recent,
         setRecent,
         chartData,
+        darkMode,
+        setdarkMode,
+        userDetails,
+        setUserDetails,
       }}
     >
       {children}

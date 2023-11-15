@@ -21,7 +21,7 @@ const Login = () => {
 };
 
 const LoginForm = ({ setIsLogin }) => {
-  const { setUserID } = useGlobalContext();
+  const { setUserID, userDetails, setUserDetails } = useGlobalContext();
   const [_, setCookies] = useCookies(["access_token"]);
   const navigate = useNavigate();
   const [loginInputs, setLoginInputs] = useState({
@@ -47,6 +47,10 @@ const LoginForm = ({ setIsLogin }) => {
       navigate("/");
       toast.success("You have Successfully Logged in!");
       setUserID(result.data.user._id);
+      window.localStorage.setItem("userDetails", {
+        username: result.data.user.username,
+        email: result.data.user.email,
+      });
     } catch (error) {
       toast.error(error.response.data.message);
       console.error(error);
@@ -58,7 +62,7 @@ const LoginForm = ({ setIsLogin }) => {
       className="form"
       onSubmit={(e) => {
         e.preventDefault();
-        if (!password == "" || !username == "" || !password == "") {
+        if (!email == "" || !username == "" || !password == "") {
           handleSubmit();
         } else {
           toast.error("Please enter all the fields");
@@ -167,7 +171,7 @@ const RegisterForm = ({ setIsLogin }) => {
       onSubmit={(e) => {
         e.preventDefault();
         if (
-          password == "" ||
+          email == "" ||
           username == "" ||
           password == "" ||
           confirmPassword == ""

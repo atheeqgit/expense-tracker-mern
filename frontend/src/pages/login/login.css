@@ -98,3 +98,8 @@
 form button:hover {
   opacity: 0.7;
 }
+@media screen and (max-width: 1000px) {
+  .login-container .form {
+    width: fit-content;
+  }
+}

@@ -41,7 +41,6 @@ svg {
   padding: 0.5rem 1rem;
   font-weight: 500;
   color: var(--dark-font);
-
   border-bottom: 1px solid rgba(128, 128, 128, 0.329);
 }
 

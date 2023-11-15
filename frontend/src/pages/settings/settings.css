@@ -1,0 +1,9 @@
+.setting-content {
+  width: 100%;
+  display: flex;
+  gap: 1.5rem;
+  flex-direction: column;
+}
+.setting-content button {
+  width: fit-content;
+}

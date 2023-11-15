@@ -31,7 +31,13 @@ const Form = () => {
   };
 
   const handleSubmit = () => {
-    if (!title == "" || !amount == "" || !date == "" || !date == null) {
+    if (
+      !title == "" ||
+      !amount == "" ||
+      !amount == 0 ||
+      !date == "" ||
+      !date == null
+    ) {
       if (submitType == "income") {
         addIncome(inputValues);
       } else {

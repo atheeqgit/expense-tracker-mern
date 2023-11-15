@@ -81,3 +81,59 @@
 .nav-btns button:hover {
   opacity: 0.7;
 }
+.menu-btn {
+  display: none;
+}
+@media screen and (max-width: 1000px) {
+  .navbar .logo {
+    font-size: 2.4rem;
+
+    margin-bottom: 2rem;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .app {
+    gap: 0rem;
+  }
+  .aside-layout {
+    position: absolute;
+    width: 45%;
+    top: 5rem;
+    right: -60%;
+    z-index: 101;
+    transition: 300ms ease all;
+    height: 90vh;
+  }
+  .main-layout {
+    width: 100%;
+  }
+  .menu-btn {
+    display: block;
+    position: fixed;
+    top: 1.5rem;
+    right: 2rem;
+    z-index: 101;
+    color: var(--dark-font);
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--lightBlue);
+    border-radius: 50%;
+  }
+  .aside-layout.show {
+    position: absolute;
+    width: 45%;
+    top: 5rem;
+    right: 1.2rem;
+    z-index: 101;
+    height: 90vh;
+  }
+}
+@media screen and (max-width: 520px) {
+  .aside-layout.show {
+    width: 70%;
+  }
+}

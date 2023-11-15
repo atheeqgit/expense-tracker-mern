@@ -48,3 +48,11 @@
   flex-direction: column;
   gap: 2rem;
 }
+
+@media screen and (max-width: 800px) {
+}
+@media screen and (max-width: 600px) {
+  .charts canvas {
+    width: 80vw;
+  }
+}

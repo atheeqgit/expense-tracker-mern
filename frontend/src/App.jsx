@@ -17,19 +17,18 @@ import { useNavigate } from "react-router-dom";
 
 function App() {
   const [count, setCount] = useState(0);
-  const { userID } = useGlobalContext();
+  const { userID, darkMode, setdarkMode } = useGlobalContext();
 
   useContext(() => {
     navigate("/login");
   }, []);
 
   return (
-    <div className="app dark-mode" id="container">
+    <div className={darkMode ? "app dark-mode" : "app"} id="container">
       <ToastContainer autoClose={4000} hideProgressBar={true} />
       <Router>
-        <div className="aside-layout">
-          <Navbar />
-        </div>
+        <Navbar />
+
         <div className="main-layout" id="container">
           <Routes>
             <Route path="/" element={userID ? <Home /> : <Login />}></Route>
