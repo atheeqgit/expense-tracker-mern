@@ -15,7 +15,7 @@ const Form = () => {
     amount: "",
     type: "income",
     description: "",
-    date: "",
+    date: new Date(),
     category: "",
   });
 
@@ -49,7 +49,7 @@ const Form = () => {
         amount: "",
         type: "income",
         description: "",
-        date: "",
+        date: new Date(),
         category: "",
       });
     } else {
@@ -99,11 +99,9 @@ const Form = () => {
         <div className="form-control-date">
           <DatePicker
             id="date"
-            placeholderText="Enter A Date"
             selected={date}
             value={date}
-            placeholder="Enter a date"
-            dateFormat="d/MM/yyyy"
+            format="dd/MM/yyyy"
             onChange={(date) => {
               setInputValues({ ...inputValues, date: date });
             }}
