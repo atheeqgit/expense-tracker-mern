@@ -25,7 +25,6 @@ export function GlobalProvider({ children }) {
       setUserDetails(window.localStorage.getItem("userDetails"));
       getAllIncomes();
 
-      console.log(userDetails);
       const chartData = () => {
         const duplicateArray = recent?.map((item) => {
           return dateFormat(item.date);
@@ -109,7 +108,7 @@ export function GlobalProvider({ children }) {
         return new Date(b.date) - new Date(a.date);
       });
 
-      setAllIncomes(combinedArr.slice(0, 3));
+      setAllIncomes(combinedArr.slice(0, 5));
       setRecent(combinedArr);
     }
   };

@@ -6,13 +6,7 @@ const { readdirSync } = require("fs");
 
 //creating express app and cors
 const app = express();
-app.use(
-  cors({
-    origin: ["https://expense-tracker-api-three.vercel.app"],
-    methods: ["POST", "GET", "DELETE", "PATCH"],
-    credentials: true,
-  })
-);
+app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {

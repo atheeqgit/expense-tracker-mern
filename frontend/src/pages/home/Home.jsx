@@ -25,7 +25,7 @@ const Home = () => {
       <Infobox />
       <div className="transactions-div">
         <div className="trans-title-div">
-          <h1 className="title-text">3 recent Trancactions</h1>
+          <h1 className="title-text">last five Trancactions</h1>
           <button
             onClick={() => {
               navigate("/recent");
