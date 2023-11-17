@@ -66,7 +66,8 @@ export function GlobalProvider({ children }) {
     }
   }, [incomes, expense]);
 
-  const baseURL = "http://127.0.0.1:5000/api/v1";
+  // const baseURL = "http://127.0.0.1:5000/api/v1";
+  const baseURL = "https://expense-tracker-backend-cpma.onrender.com/api/v1";
 
   // ======== POST INCOME & EXPENSE =============================
 

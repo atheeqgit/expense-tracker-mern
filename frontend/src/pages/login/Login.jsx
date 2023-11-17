@@ -30,6 +30,8 @@ const LoginForm = ({ setIsLogin }) => {
     password: "",
   });
 
+  const baseURL = "https://expense-tracker-backend-cpma.onrender.com/api/v1";
+
   const { username, email, password } = loginInputs;
   const onChanging = (e) => {
     setLoginInputs({ ...loginInputs, [e.target.name]: e.target.value });
@@ -37,10 +39,7 @@ const LoginForm = ({ setIsLogin }) => {
 
   const handleSubmit = async () => {
     try {
-      const result = await axios.post(
-        "http://127.0.0.1:5000/api/v1/users/login",
-        loginInputs
-      );
+      const result = await axios.post(baseURL + "/users/login", loginInputs);
 
       setCookies("access_token", result.data.token);
       window.localStorage.setItem("userID", result.data.user._id);
@@ -147,12 +146,11 @@ const RegisterForm = ({ setIsLogin }) => {
     setLoginInputs({ ...loginInputs, [e.target.name]: e.target.value });
   };
 
+  const baseURL = "https://expense-tracker-backend-cpma.onrender.com/api/v1";
+
   const handleSubmit = async (event) => {
     try {
-      const result = await axios.post(
-        "http://127.0.0.1:5000/api/v1/users/register",
-        loginInputs
-      );
+      const result = await axios.post(baseURL + "/users/register", loginInputs);
 
       setCookies("access_token", result.data.token);
       window.localStorage.setItem("userID", result.data.user._id);
