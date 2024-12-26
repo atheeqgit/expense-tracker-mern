@@ -25,7 +25,6 @@ export function GlobalProvider({ children }) {
       setUserDetails(JSON.parse(window.localStorage.getItem("userDetails")));
       getAllIncomes();
 
-      console.log(userDetails);
       const chartData = () => {
         const duplicateArray = recent?.map((item) => {
           return dateFormat(item.date);
