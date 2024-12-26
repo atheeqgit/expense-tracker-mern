@@ -49,8 +49,11 @@ export function GlobalProvider({ children }) {
             }
           });
 
+          const parts = date.split("/"); // Split the date by '/'
+          const formattedDate = `${parts[0]}/${parts[1]}`; // Extract and format
+
           return {
-            date: date,
+            date: formattedDate,
             income: inc,
             expense: exp,
           };
