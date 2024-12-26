@@ -94,6 +94,10 @@
     gap: 0.5rem;
     font-size: 1.4rem;
   }
+  .card .card-btns p {
+    width: 100px;
+    overflow-x: hidden;
+  }
   .card h3 {
     font-size: 1.6rem;
   }

@@ -5,6 +5,7 @@ import Card from "../../components/card/Card";
 import { Link, useNavigate } from "react-router-dom";
 import Infobox from "../../components/infobox/Infobox";
 import FloatingBtn from "../../components/floatingBtn/FloatingBtn";
+import Legend from "../../components/legend/Legend";
 
 const Home = () => {
   const { getAllIncomes, allIncomes, getIncomes, getExpense, userDetails } =
@@ -32,23 +33,12 @@ const Home = () => {
               navigate("/recent");
             }}
           >
-            view all Transactions <i class="fa-solid fa-chevron-down"></i>
+            view all <i class="fa-solid fa-chevron-down"></i>
           </button>
         </div>
 
-        <div
-          className="card"
-          style={{
-            color: `var(--dark-font)`,
-            backgroundColor: `var(--lightBlue)`,
-          }}
-        >
-          <p className="card-title">Title</p>
-          <p>Amount</p>
-          <p>description</p>
-          <p className="card-btns">date & time</p>
-          <p className="card-btns">tools</p>
-        </div>
+        <Legend />
+
         {allIncomes.length != [] ? (
           allIncomes.map((income, index) => {
             return <Card data={income} key={index} />;

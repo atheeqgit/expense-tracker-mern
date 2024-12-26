@@ -5,6 +5,7 @@ import Card from "../../components/card/Card";
 import { Link, useNavigate } from "react-router-dom";
 import LineChart from "../../components/lineChart/LineChart";
 import FloatingBtn from "../../components/floatingBtn/FloatingBtn";
+import Legend from "../../components/legend/Legend";
 
 const Dashboard = () => {
   const { getIncomes, getExpense, incomes, expense } = useGlobalContext();
@@ -42,19 +43,7 @@ const Dashboard = () => {
             <i class="fa-solid fa-chevron-down"></i>
           </button>
         </div>
-        <div
-          className="card"
-          style={{
-            color: `var(--dark-font)`,
-            backgroundColor: `var(--lightBlue)`,
-          }}
-        >
-          <p className="card-title">Title</p>
-          <p>Amount</p>
-          <p>description</p>
-          <p className="card-btns">date & time</p>
-          <p className="card-btns">tools</p>
-        </div>
+        <Legend />
         {isIncome ? (
           incomes.length != 0 ? (
             incomes.map((income) => {

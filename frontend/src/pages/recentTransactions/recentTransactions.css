@@ -33,3 +33,8 @@
   flex-direction: column;
   gap: 1.5rem;
 }
+@media screen and (max-width: 600px) {
+  .transactions-div {
+    padding: 1rem;
+  }
+}

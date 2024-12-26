@@ -34,4 +34,7 @@
   .info-card {
     padding: 0.5rem;
   }
+  .info-div {
+    padding: 0.5rem 1rem;
+  }
 }

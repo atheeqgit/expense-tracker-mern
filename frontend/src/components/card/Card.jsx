@@ -31,11 +31,11 @@ const Card = ({ data }) => {
       </div>
       <div className="card-middle">
         <p className="card-btns">
-          <i class="fa-solid fa-comment-medical"></i> <div>{description}</div>
+          <i class="fa-solid fa-comment-medical"></i> <p>{description}</p>
         </p>
         <p className="card-btns">
           <i class="fa-solid fa-calendar-days"></i>
-          {dateFormat(date)}
+          <p>{dateFormat(date)}</p>
         </p>
       </div>
       <div className="card-btns tool">

@@ -8,7 +8,7 @@ exports.addIncome = async (req, res) => {
   const income = IncomeSchema({
     title,
     amount,
-    type,
+    type: "income",
     date,
     category,
     description,
