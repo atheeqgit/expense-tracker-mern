@@ -25,14 +25,15 @@ const LoginForm = ({ setIsLogin }) => {
   const [_, setCookies] = useCookies(["access_token"]);
   const navigate = useNavigate();
   const [loginInputs, setLoginInputs] = useState({
-    username: "",
     email: "",
     password: "",
+    username: "some",
   });
+  // const baseURL = "http://127.0.0.1:5000/api/v1";
 
   const baseURL = "https://expense-tracker-backend-cpma.onrender.com/api/v1";
 
-  const { username, email, password } = loginInputs;
+  const { email, password } = loginInputs;
   const onChanging = (e) => {
     setLoginInputs({ ...loginInputs, [e.target.name]: e.target.value });
   };
@@ -46,10 +47,11 @@ const LoginForm = ({ setIsLogin }) => {
       navigate("/");
       toast.success("You have Successfully Logged in!");
       setUserID(result.data.user._id);
-      window.localStorage.setItem("userDetails", {
-        username: result.data.user.username,
-        email: result.data.user.email,
-      });
+      setUserDetails({ ...result.data.user });
+      window.localStorage.setItem(
+        "userDetails",
+        JSON.stringify({ ...result.data.user })
+      );
     } catch (error) {
       toast.error(error.response.data.message);
       console.error(error);
@@ -61,7 +63,7 @@ const LoginForm = ({ setIsLogin }) => {
       className="form"
       onSubmit={(e) => {
         e.preventDefault();
-        if (!email == "" || !username == "" || !password == "") {
+        if (!email == "" || !password == "") {
           handleSubmit();
         } else {
           toast.error("Please enter all the fields");
@@ -74,20 +76,7 @@ const LoginForm = ({ setIsLogin }) => {
         </h1>
         <p>welcome back ! , please fillout all the inputs.</p>
       </div>
-      <div className="form-control">
-        <label htmlFor="username">
-          <i class="fa-solid fa-user"></i> username
-        </label>
-        <input
-          type="string"
-          name="username"
-          onChange={(e) => {
-            onChanging(e);
-          }}
-          value={username}
-          placeholder="Enter username"
-        />
-      </div>
+
       <div className="form-control">
         <label htmlFor="email">
           <i class="fa-solid fa-envelope"></i> email
@@ -131,7 +120,7 @@ const LoginForm = ({ setIsLogin }) => {
 const RegisterForm = ({ setIsLogin }) => {
   const [_, setCookies] = useCookies(["access_token"]);
   const navigate = useNavigate();
-  const { setUserID } = useGlobalContext();
+  const { setUserID, setUserDetails } = useGlobalContext();
 
   const [loginInputs, setLoginInputs] = useState({
     username: "",
@@ -154,9 +143,15 @@ const RegisterForm = ({ setIsLogin }) => {
 
       setCookies("access_token", result.data.token);
       window.localStorage.setItem("userID", result.data.user._id);
+      window.localStorage.setItem(
+        "userDetails",
+        JSON.stringify({ ...result.data.user })
+      );
       navigate("/");
+
       toast.success("You have Successfully Logged in!");
       setUserID(result.data.user._id);
+      setUserDetails({ ...result.data.user });
     } catch (error) {
       toast.error("error Occureded loging in!");
       console.error(error);

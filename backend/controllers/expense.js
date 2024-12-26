@@ -8,7 +8,7 @@ exports.addExpense = async (req, res) => {
   const expense = ExpenseSchema({
     title,
     amount,
-    type,
+    type: "expense",
     date,
     category,
     description,

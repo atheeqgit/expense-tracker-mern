@@ -25,20 +25,20 @@ const Card = ({ data }) => {
         }, -1px 0 0.3em #6d6d6d38`,
       }}
     >
-      <h3 className="card-title">{title}</h3>
-      <h2>
-        <i class="fa-solid fa-dollar-sign"></i>
-        {amount}
-      </h2>
-      <p>
-        <i class="fa-solid fa-comment-medical"></i> {description}
-      </p>
-      <p className="card-btns">
-        <i class="fa-solid fa-calendar-days"></i>
-        {dateFormat(date)}
-      </p>
-      <div className="card-btns">
-        <i class="fa-solid fa-pen-to-square"></i>{" "}
+      <div className="card-first">
+        <h2>₹{amount}</h2>
+        <h3 className="card-title">{title}</h3>
+      </div>
+      <div className="card-middle">
+        <p className="card-btns">
+          <i class="fa-solid fa-comment-medical"></i> <div>{description}</div>
+        </p>
+        <p className="card-btns">
+          <i class="fa-solid fa-calendar-days"></i>
+          {dateFormat(date)}
+        </p>
+      </div>
+      <div className="card-btns tool">
         <i
           class="fa-solid fa-trash"
           onClick={() => {

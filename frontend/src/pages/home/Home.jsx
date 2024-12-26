@@ -7,7 +7,7 @@ import Infobox from "../../components/infobox/Infobox";
 import FloatingBtn from "../../components/floatingBtn/FloatingBtn";
 
 const Home = () => {
-  const { getAllIncomes, allIncomes, getIncomes, getExpense } =
+  const { getAllIncomes, allIncomes, getIncomes, getExpense, userDetails } =
     useGlobalContext();
 
   useEffect(() => {
@@ -22,6 +22,7 @@ const Home = () => {
       <h1 className="title-text2">
         <i className="fa-solid fa-house"></i> home
       </h1>
+      <h1 className="title-text">Welcome, {userDetails.username}</h1>
       <Infobox />
       <div className="transactions-div">
         <div className="trans-title-div">

@@ -8,13 +8,14 @@
 .form-container .form {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  padding: 2rem;
+  min-height: 80vh;
   border-radius: 1rem;
   justify-content: space-around;
   background-color: var(--white);
   width: fit-content;
   gap: 1.5rem;
-  box-shadow: 6px 6px rgb(0, 255, 21), -1px 0 0.3em #6d6d6d38;
+  border: 1px solid var(--2lightBlue);
 }
 svg {
   color: var(--light-font);
@@ -28,25 +29,24 @@ svg {
 }
 .form-container .form .form-control {
   display: flex;
-
   gap: 0.5rem;
 }
 
 .form-container .form .form-control input {
   background-color: var(--white);
-  border: none;
+  border: 1px solid var(--2lightBlue);
   outline: none;
-  font-size: 1.6rem;
+  font-size: 2rem;
   font-family: inherit;
   width: 100%;
-  padding: 0.5rem 1rem;
+  padding: 1rem 1.5rem;
   font-weight: 500;
+  border-radius: 5px;
   color: var(--dark-font);
-  border-bottom: 1px solid rgba(128, 128, 128, 0.329);
 }
 
 .form-container .form .form-control .amount {
-  font-size: 3.6rem;
+  font-size: 2.4rem;
 }
 
 .form-container .form h1 {

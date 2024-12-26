@@ -4,6 +4,7 @@
   gap: 2rem;
   position: relative;
   width: 100%;
+  margin-bottom: 5rem;
 }
 .home .trans-title-div {
   display: flex;

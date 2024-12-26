@@ -9,15 +9,15 @@ const Infobox = () => {
     <div className="info-div">
       <div className="info-card">
         <p>total income</p>
-        <h2>${getTotalIncome()}</h2>
+        <h2>₹{getTotalIncome()}</h2>
       </div>
       <div className="info-card">
         <p>total expense</p>
-        <h2>${getTotalExpense()}</h2>
+        <h2>₹{getTotalExpense()}</h2>
       </div>
       <div className="info-card">
         <p>balance</p>
-        <h2>${getTotalBalance()}</h2>
+        <h2>₹{getTotalBalance()}</h2>
       </div>
     </div>
   );

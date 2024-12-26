@@ -33,16 +33,6 @@ const LineChart = () => {
     }),
     datasets: [
       {
-        label: "Incomes",
-        data: chartData.map((item) => {
-          return item.income;
-        }),
-        backgroundColor: "green",
-        borderColor: "rgb(84 255 98)",
-
-        tension: 0.5,
-      },
-      {
         label: "Expenses",
         data: chartData.map((item) => {
           return item.expense;
@@ -54,11 +44,33 @@ const LineChart = () => {
       },
     ],
   };
+  const data2 = {
+    labels: chartData.map((item) => {
+      return item.date;
+    }),
+    datasets: [
+      {
+        label: "Incomes",
+        data: chartData.map((item) => {
+          return item.income;
+        }),
+        backgroundColor: "green",
+        borderColor: "rgb(84 255 98)",
+
+        tension: 0.5,
+      },
+    ],
+  };
 
   return (
-    <div className="chart">
-      <Line data={data} />
-    </div>
+    <>
+      <div className="chart">
+        <Line data={data} />
+      </div>
+      <div className="chart">
+        <Line data={data2} />
+      </div>
+    </>
   );
 };
 

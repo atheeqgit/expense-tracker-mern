@@ -22,9 +22,10 @@ export function GlobalProvider({ children }) {
   useEffect(() => {
     if (window.localStorage.getItem("userID")) {
       setUserID(window.localStorage.getItem("userID"));
-      setUserDetails(window.localStorage.getItem("userDetails"));
+      setUserDetails(JSON.parse(window.localStorage.getItem("userDetails")));
       getAllIncomes();
 
+      console.log(userDetails);
       const chartData = () => {
         const duplicateArray = recent?.map((item) => {
           return dateFormat(item.date);
