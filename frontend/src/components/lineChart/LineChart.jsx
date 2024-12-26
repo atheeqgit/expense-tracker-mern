@@ -63,14 +63,18 @@ const LineChart = () => {
   };
 
   return (
-    <>
-      <div className="chart">
-        <Line data={data} />
+    <div className="chart-box">
+      <div className="charts">
+        <div className="chart">
+          <Line data={data} />
+        </div>
       </div>
-      <div className="chart">
-        <Line data={data2} />
+      <div className="charts">
+        <div className="chart">
+          <Line data={data2} />
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -39,7 +39,7 @@
   border: 2px solid var(--lightBlue);
 }
 .charts canvas {
-  width: 35vw;
+  width: 32vw;
   height: 50%;
 }
 .dashboard .transactions-div {
@@ -49,8 +49,18 @@
   flex-direction: column;
   gap: 2rem;
 }
+.chart-box {
+  display: flex;
+  gap: 1rem;
+  flex-direction: row;
+}
 
 @media screen and (max-width: 1000px) {
+  .chart-box {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+  }
   .charts {
     display: flex;
     justify-content: center;

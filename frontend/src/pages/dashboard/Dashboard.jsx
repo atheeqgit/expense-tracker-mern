@@ -25,9 +25,8 @@ const Dashboard = () => {
       <h1 className="title-text2">
         <i className="fa-solid fa-chart-line"></i> dashboard
       </h1>
-      <div className="charts">
-        <LineChart />
-      </div>
+
+      <LineChart />
 
       <div className="transactions-div">
         <div className="btns-div">
